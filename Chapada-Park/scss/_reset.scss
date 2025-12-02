@@ -1,0 +1,43 @@
+* { 
+    margin: 0; 
+    padding: 0; 
+    border: none; 
+    box-sizing: border-box; 
+    text-decoration: none; 
+    font-size: 1.6rem;  
+    list-style: none; 
+    font-family: "Poppins", sans-serif; /* Alterado para Poppins/Montserrat conforme especificação */ 
+} 
+
+img { 
+    max-width: 100%;
+} 
+
+button {  
+    cursor: pointer;
+}
+
+html { 
+    font-size: 62.5%;   
+
+    @include responsive(1050px) {
+        font-size: 52.5%;
+    } 
+
+    @include responsive(900px) {
+        font-size: 49.5%;
+    } 
+
+    @include responsive(800px) {
+        font-size: 45.5%;
+    } 
+
+    @include responsive(600px) {
+        font-size: 40.5%;
+    } 
+
+    @include responsive(480px) {
+        font-size: 33.5%;
+    }
+}
+

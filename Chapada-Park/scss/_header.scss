@@ -1,0 +1,218 @@
+/* Header melhorado com menu hambúrguer */
+header {
+  background: linear-gradient(90deg, #00529B, #003d7a);
+  padding: 1.5rem 0;
+  position: fixed;
+  width: 100%;
+  top: 0;
+  z-index: 1000;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+}
+
+header .container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: relative;
+}
+
+header .logo img {
+  height: 6rem;
+  transition: height 0.3s ease;
+}
+
+@media (max-width: 768px) {
+  header .logo img {
+    height: 5rem;
+  }
+}
+
+/* Menu hambúrguer */
+.menu-toggle {
+  display: none;
+  flex-direction: column;
+  cursor: pointer;
+  padding: 0.5rem;
+}
+
+.menu-toggle span {
+  width: 2.5rem;
+  height: 0.3rem;
+  background-color: #FFFFFF;
+  margin: 0.3rem 0;
+  transition: 0.3s;
+  border-radius: 0.2rem;
+}
+
+.menu-toggle.active span:nth-child(1) {
+  transform: rotate(-45deg) translate(-0.5rem, 0.6rem);
+}
+
+.menu-toggle.active span:nth-child(2) {
+  opacity: 0;
+}
+
+.menu-toggle.active span:nth-child(3) {
+  transform: rotate(45deg) translate(-0.5rem, -0.6rem);
+}
+
+/* Navegação principal */
+nav {
+  display: flex;
+  align-items: center;
+}
+
+nav ul {
+  display: flex;
+  align-items: center;
+  gap: 3rem;
+}
+
+nav ul li {
+  position: relative;
+}
+
+nav ul li a {
+  color: #FFFFFF;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 500;
+  font-size: 1.6rem;
+  padding: 1rem 0;
+  transition: all 0.3s ease;
+  display: block;
+}
+
+nav ul li a:hover {
+  color: #FFD700;
+}
+
+/* Submenu */
+.submenu {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background-color: #002D5B;
+  min-width: 20rem;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  border-radius: 0.5rem;
+  padding: 1rem 0;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-1rem);
+  transition: all 0.3s ease;
+}
+
+.has-submenu:hover .submenu {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.submenu li a {
+  padding: 1rem 1.5rem;
+  font-size: 1.4rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.submenu li:last-child a {
+  border-bottom: none;
+}
+
+.submenu li a:hover {
+  background-color: #00529B;
+  color: #FFD700;
+}
+
+/* Botão Seja Sócio */
+.btn-socio {
+  background-color: #FFFFFF;
+  color: #00529B;
+  padding: 1.2rem 2.5rem;
+  border-radius: 3rem;
+  font-family: "Montserrat", sans-serif;
+  font-weight: bold;
+  font-size: 1.4rem;
+  text-transform: uppercase;
+  transition: all 0.3s ease;
+  margin-left: 2rem;
+}
+
+.btn-socio:hover {
+  background-color: #FFD700;
+  color: #002D5B;
+  transform: translateY(-0.2rem);
+  box-shadow: 0 5px 15px rgba(255, 215, 0, 0.4);
+}
+
+/* Responsividade do menu */
+@media (max-width: 992px) {
+  .menu-toggle {
+    display: flex;
+  }
+  
+  nav {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    background: linear-gradient(180deg, #002D5B, #001a3d);
+    transform: translateY(-100%);
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+  }
+  
+  nav.active {
+    transform: translateY(0);
+    opacity: 1;
+    visibility: visible; 
+    justify-content: center;
+  }
+  
+  nav ul {
+    flex-direction: column;
+    gap: 0;
+    padding: 2rem 0;
+  }
+  
+  nav ul li {
+    width: 100%;
+    text-align: center;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  }
+  
+  nav ul li:last-child {
+    border-bottom: none;
+  }
+  
+  nav ul li a {
+    padding: 1.5rem 2rem;
+    font-size: 1.6rem;
+  }
+  
+  .submenu {
+    position: static;
+    background-color: rgba(0, 45, 91, 0.9);
+    box-shadow: none;
+    border-radius: 0;
+    opacity: 0;
+    visibility: hidden;
+    transform: none;
+    max-height: 0;
+    overflow: hidden;
+    transition: all 0.3s ease;
+  }
+  
+  .has-submenu.active .submenu {
+    opacity: 1;
+    visibility: visible;
+    max-height: 20rem;
+  }
+  
+  .btn-socio {
+    margin: 2rem auto 0;
+    display: block;
+    width: fit-content;
+  }
+}
+
